@@ -2,66 +2,40 @@ package com.xandra.employeecreator.employees;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 
-
-@Entity
-@Table(name = "employees")
-public class Employee {
+public class UpdateEmployeeDTO {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column
 	private String firstName;
 	
-	@Column(nullable=true)
 	private String middleName;
 	
-	@Column
 	private String lastName;
 	
-	@Column
+	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",
+	flags = Pattern.Flag.CASE_INSENSITIVE)
 	private String email;
 	
-	@Column
+	@Pattern(regexp="(^$|[0-9]{10})")
 	private String mobileNumber;
 	
-	@Column
 	private String address;
 	
-	@Column
+	//@NotBlank this enum cannot use notblank
 	private ContractType contractType;
 	
-	@Column
+	//@NotBlank Date cannot use notblank??
 	private Date startDate;
 	
-	@Column(nullable=true)
+	//@NotBlank
 	private Date finishDate;
 	
-	@Column
+	//@NotBlank booleans cannot use notblank??
 	private Boolean isOngoing;
 	
-	@Column
+	//@NotBlank
 	private Integer hoursPerWeek;
-
-	public Employee() {
-		super();
-	}
-	
-	
-
-	public Long getId() {
-		return id;
-	}
-
-
 
 	public String getFirstName() {
 		return firstName;
