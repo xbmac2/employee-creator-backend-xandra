@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.xandra.employeecreator.exceptions.BadRequestException;
 import com.xandra.employeecreator.exceptions.NotFoundException;
 
 import jakarta.validation.Valid;
@@ -27,7 +28,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	@PostMapping
-	public ResponseEntity<Employee> createEmployee(@Valid @RequestBody CreateEmployeeDTO data) {
+	public ResponseEntity<Employee> createEmployee(@Valid @RequestBody CreateEmployeeDTO data) throws BadRequestException {
 		System.out.println(data);
 		//return "YOU created an employee";
 		//return this.employeeService.createEmployee(data);
@@ -51,7 +52,7 @@ public class EmployeeController {
 	}
 	
 	@PatchMapping("/{id}")
-	public ResponseEntity<Employee> updateEmployeeById(@Valid @RequestBody UpdateEmployeeDTO data, @PathVariable Long id) throws NotFoundException {
+	public ResponseEntity<Employee> updateEmployeeById(@Valid @RequestBody UpdateEmployeeDTO data, @PathVariable Long id) throws NotFoundException, BadRequestException {
 		Optional<Employee> maybeUpdatedEmployee = this.employeeService.updateById(data, id);
 		
 		Employee updatedEmployee = maybeUpdatedEmployee.orElseThrow(() -> new NotFoundException(Employee.class, id));

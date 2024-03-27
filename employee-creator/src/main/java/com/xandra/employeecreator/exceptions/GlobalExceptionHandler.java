@@ -11,4 +11,9 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> handleNotFoundException(NotFoundException ex) {
 		return new ResponseEntity<>(ex.getMessage(), NotFoundException.getStatusCode());
 	}
+	
+	@ExceptionHandler(BadRequestException.class)
+	public ResponseEntity<String> handleBadRequestException(BadRequestException ex) {
+		return new ResponseEntity<>(ex.getMessage(), BadRequestException.getStatusCode());
+	}
 }
