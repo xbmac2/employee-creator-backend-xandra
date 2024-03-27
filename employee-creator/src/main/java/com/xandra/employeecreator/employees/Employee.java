@@ -45,8 +45,8 @@ public class Employee {
 	@Column(nullable=true)
 	private Date finishDate;
 	
-	@Column
-	private Boolean isOngoing;
+//	@Column
+//	private Boolean isOngoing;
 	
 	@Column
 	private Integer hoursPerWeek;
@@ -133,14 +133,6 @@ public class Employee {
 
 	public void setFinishDate(Date finishDate) {
 		this.finishDate = finishDate;
-	}
-
-	public Boolean getIsOngoing() {
-		return isOngoing;
-	}
-
-	public void setIsOngoing(Boolean isOngoing) {
-		this.isOngoing = isOngoing;
 	}
 
 	public Integer getHoursPerWeek() {

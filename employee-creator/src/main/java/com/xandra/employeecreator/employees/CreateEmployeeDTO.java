@@ -5,6 +5,7 @@ import java.util.Date;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public class CreateEmployeeDTO {
@@ -29,19 +30,16 @@ public class CreateEmployeeDTO {
 	@NotBlank
 	private String address;
 	
-	//@NotBlank this enum cannot use notblank
+	@NotNull
 	private ContractType contractType;
 	
-	//@NotBlank Date cannot use notblank??
+	@NotNull
 	private Date startDate;
 	
-	//@NotBlank
+	
 	private Date finishDate;
 	
-	//@NotBlank booleans cannot use notblank??
-	private Boolean isOngoing;
-	
-	//@NotBlank
+	@NotNull
 	private Integer hoursPerWeek;
 
 	public String getFirstName() {
@@ -80,10 +78,6 @@ public class CreateEmployeeDTO {
 		return finishDate;
 	}
 
-	public Boolean getIsOngoing() {
-		return isOngoing;
-	}
-
 	public Integer getHoursPerWeek() {
 		return hoursPerWeek;
 	}
@@ -92,9 +86,11 @@ public class CreateEmployeeDTO {
 	public String toString() {
 		return "CreateEmployeeDTO [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
 				+ ", email=" + email + ", mobileNumber=" + mobileNumber + ", address=" + address + ", contractType="
-				+ contractType + ", startDate=" + startDate + ", finishDate=" + finishDate + ", isOngoing=" + isOngoing
-				+ ", hoursPerWeek=" + hoursPerWeek + "]";
+				+ contractType + ", startDate=" + startDate + ", finishDate=" + finishDate + ", hoursPerWeek="
+				+ hoursPerWeek + "]";
 	}
+	
+	
 	
 	
 }

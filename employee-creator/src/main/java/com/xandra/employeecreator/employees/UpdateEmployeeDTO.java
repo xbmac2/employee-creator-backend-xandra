@@ -32,7 +32,7 @@ public class UpdateEmployeeDTO {
 	private Date finishDate;
 	
 	//@NotBlank booleans cannot use notblank??
-	private Boolean isOngoing;
+//	private Boolean isOngoing;
 	
 	//@NotBlank
 	private Integer hoursPerWeek;
@@ -107,14 +107,6 @@ public class UpdateEmployeeDTO {
 
 	public void setFinishDate(Date finishDate) {
 		this.finishDate = finishDate;
-	}
-
-	public Boolean getIsOngoing() {
-		return isOngoing;
-	}
-
-	public void setIsOngoing(Boolean isOngoing) {
-		this.isOngoing = isOngoing;
 	}
 
 	public Integer getHoursPerWeek() {
